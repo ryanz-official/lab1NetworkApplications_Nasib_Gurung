@@ -1,0 +1,13 @@
+robots.txt
+admin
+files/
+files/readme.txt
+hidden/
+hidden/notes.txt
+.git/HEAD
+sitemap.xml
+backup
+login
+
+# STUDENT_PATHS — add at least three extra common paths below this line (one per line).
+# Do not delete the starter paths above. Example names (you choose your own): dashboard  api  .env

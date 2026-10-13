@@ -17,7 +17,7 @@ python3 scripts/grade.py --show-parsed
 
 Tick the box below if you agree (put an x inside the brackets):
 
-- [ ] I will only scan authorized lab targets (127.0.0.1 / localhost).
+- [x] I will only scan authorized lab targets (127.0.0.1 / localhost).
 
 ---
 
@@ -27,23 +27,50 @@ Copy WHOIS / NS / A / AAAA from `artifacts/recon.txt`. Use **example.com only**.
 Command must include `recon_dns.sh` and `example.com`.
 
 Commands used:
+./scripts/recon_dns.sh example.com
+
 
 
 
 WHOIS:
+== WHOIS ==
+   Domain Name: EXAMPLE.COM
+   Registry Domain ID: 2336799_DOMAIN_COM-VRSN
+   Registrar WHOIS Server: whois.iana.org
+   Registrar URL: http://res-dom.iana.org
+   Updated Date: 2026-08-14T08:01:43Z
+   Creation Date: 1995-08-14T04:00:00Z
+   Registry Expiry Date: 2027-08-13T04:00:00Z
+   Registrar: RESERVED-Internet Assigned Numbers Authority
+   Registrar IANA ID: 376
+   Registrar Abuse Contact Email:
+   Registrar Abuse Contact Phone:
+   Domain Status: clientDeleteProhibited https://icann.org/epp#clientDeleteProhibited
+   Domain Status: clientTransferProhibited https://icann.org/epp#clientTransferProhibited
+   Domain Status: clientUpdateProhibited https://icann.org/epp#clientUpdateProhibited
+   Name Server: ELLIOTT.NS.CLOUDFLARE.COM
+   Name Server: HERA.NS.CLOUDFLARE.COM
+   DNSSEC: signedDelegation
+   DNSSEC DS Data: 2371 13 2 C988EC423E3880EB8DD8A46FE06CA230EE23F35B578D64E78B29C3E1C83D245A
+   URL of the ICANN Whois Inaccuracy Complaint Form: https://www.icann.org/wicf/
+>>> Last update of whois database: 2026-10-13T16:27:38Z <<<
 
+For more information on Whois status codes, please visit https://icann.org/epp
 
 
 NS records:
-
+example.com.            148     IN      NS      hera.ns.cloudflare.com.
+example.com.            148     IN      NS      elliott.ns.cloudflare.com.
 
 
 A record:
-
+example.com.            153     IN      A       104.20.23.154
+example.com.            153     IN      A       172.66.147.243
 
 
 AAAA record:
-
+example.com.            142     IN      AAAA    2606:4700:10::ac42:93f3
+example.com.            142     IN      AAAA    2606:4700:10::6814:179a
 
 
 ---

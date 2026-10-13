@@ -1,0 +1,51 @@
+== TCP port scan (lab-relevant ports, connect scan) ==
+# Nmap 7.98 scan initiated Tue Oct 13 16:42:33 2026 as: nmap -Pn -sT -T3 --max-retries 2 -p 22,80,443,3000,8000,8080,3306,5432 -oN - 127.0.0.1
+Nmap scan report for localhost (127.0.0.1)
+Host is up (0.000094s latency).
+
+PORT     STATE  SERVICE
+22/tcp   closed ssh
+80/tcp   closed http
+443/tcp  closed https
+3000/tcp open   ppp
+3306/tcp closed mysql
+5432/tcp closed postgresql
+8000/tcp closed http-alt
+8080/tcp open   http-proxy
+
+# Nmap done at Tue Oct 13 16:42:33 2026 -- 1 IP address (1 host up) scanned in 0.22 seconds
+
+== Service/version probe on lab web ports (3000,8080) ==
+Note: nmap names ports from its default list (3000=ppp, 8080=http-proxy).
+      These lab apps are custom HTTP, so version detection may say 'unrecognized'.
+      Use the curl Server: headers below for the Version column in yourAnswers.md.
+# Nmap 7.98 scan initiated Tue Oct 13 16:42:34 2026 as: nmap -Pn -sV -sT -T3 -p 3000,8080 --version-light -oN - 127.0.0.1
+Nmap scan report for localhost (127.0.0.1)
+Host is up (0.000038s latency).
+
+PORT     STATE SERVICE     VERSION
+3000/tcp open  ppp?
+8080/tcp open  http-proxy?
+2 services unrecognized despite returning data. If you know the service/version, please submit the following fingerprints at https://nmap.org/cgi-bin/submit.cgi?new-service :
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Tue Oct 13 16:42:46 2026 -- 1 IP address (1 host up) scanned in 12.05 seconds
+
+== Quick HTTP head checks (use these for Service / Version) ==
+
+-- http://127.0.0.1:3000 --
+HTTP/1.0 200 OK
+Server: InsecureLab/0.1 
+Date: Tue, 13 Oct 2026 16:42:46 GMT
+Content-Type: text/html; charset=utf-8
+Content-Length: 491
+Cache-Control: no-store
+
+
+-- http://127.0.0.1:8080 --
+HTTP/1.0 200 OK
+Server: CampusBot/0.1 
+Date: Tue, 13 Oct 2026 16:42:46 GMT
+Content-Type: text/html; charset=utf-8
+Content-Length: 1337
+

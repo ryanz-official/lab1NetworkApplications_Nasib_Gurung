@@ -86,8 +86,8 @@ Commands used:
 
 | Port | Service | Version |
 |------|---------|---------|
-| 3000 |  |  |
-| 8080 |  |  |
+| 3000 | InsecureLab | 0.1 |
+| 8080 | CampusBot | 0.1 |
 
 ---
 

@@ -98,19 +98,35 @@ Add 3 paths under `STUDENT_PATHS` in `lab/wordlist.txt`, then re-run `enum_web.s
 Copy the main commands you ran under **Commands used**.
 
 Commands used:
+curl -sI http://127.0.0.1:3000
+curl -s http://127.0.0.1:3000/
+curl -s http://127.0.0.1:3000/robots.txt
+cat lab/wordlist.txt
+./scripts/enum_web.sh http://127.0.0.1:3000
+sudo ./scripts/vuln_scan.sh http://127.0.0.1:3000
 
 
 
 WEB_FLAG:
-
+Owner: lab-admin
+Ticket: NAS-3000
+WEB_FLAG{r0b0ts_l34d_t0_s3cr3ts}
+-----
+[200] http://127.0.0.1:3000/.git/HEAD
+----- body (first 20 lines) -----
+ref: refs/heads/main
+-----
+[404] http://127.0.0.1:3000/sitemap.xml
+[404] http://127.0.0.1:3000/backup
+[404] http://127.0.0.1:3000/login
 
 
 Missing header 1:
-
+MISSING: Strict-Transport-Security
 
 
 Missing header 2:
-
+MISSING: X-Content-Type-Options
 
 
 ---

@@ -1,0 +1,34 @@
+== Missing security headers (copy two of these names) ==
+MISSING: X-Frame-Options
+MISSING: Content-Security-Policy
+MISSING: Strict-Transport-Security
+MISSING: X-Content-Type-Options
+
+== HTTP response headers (curl -I) ==
+HTTP/1.0 200 OK
+Server: InsecureLab/0.1 
+Date: Wed, 14 Oct 2026 14:39:34 GMT
+Content-Type: text/html; charset=utf-8
+Content-Length: 491
+Cache-Control: no-store
+
+
+== Nikto (local) ==
+- Nikto v2.1.5
+---------------------------------------------------------------------------
++ Target IP:          127.0.0.1
++ Target Hostname:    127.0.0.1
++ Target Port:        3000
++ Start Time:         2026-10-14 14:39:35 (GMT0)
+---------------------------------------------------------------------------
++ Server: InsecureLab/0.1 
++ The anti-clickjacking X-Frame-Options header is not present.
++ No CGI Directories found (use '-C all' to force check all possible dirs)
++ OSVDB-3268: /files/: Directory indexing found.
++ File/dir '/files/' in robots.txt returned a non-forbidden or redirect HTTP code (200)
++ "robots.txt" contains 3 entries which should be manually viewed.
++ OSVDB-3092: /files/: This might be interesting...
++ 6544 items checked: 0 error(s) and 5 item(s) reported on remote host
++ End Time:           2026-10-14 14:39:42 (GMT0) (7 seconds)
+---------------------------------------------------------------------------
++ 1 host(s) tested

@@ -1,0 +1,50 @@
+== GET http://127.0.0.1:3000/robots.txt ==
+User-agent: *
+Disallow: /hidden/
+Disallow: /admin
+Disallow: /files/
+# Please do not index internal backup notes.
+
+== Path enumeration (lab wordlist) ==
+[200] http://127.0.0.1:3000/robots.txt
+----- body (first 20 lines) -----
+User-agent: *
+Disallow: /hidden/
+Disallow: /admin
+Disallow: /files/
+# Please do not index internal backup notes.
+-----
+[403] http://127.0.0.1:3000/admin
+[200] http://127.0.0.1:3000/files/
+----- body (first 20 lines) -----
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8"><title>Index of /files/</title></head>
+<body>
+  <h1>Index of /files/</h1>
+  <ul>
+    <li><a href="/files/readme.txt">readme.txt</a></li>
+    <li><a href="/hidden/notes.txt">../hidden/notes.txt</a></li>
+  </ul>
+</body>
+</html>
+-----
+[200] http://127.0.0.1:3000/files/readme.txt
+----- body (first 20 lines) -----
+Lab file share. Nothing sensitive here.
+-----
+[404] http://127.0.0.1:3000/hidden/
+[200] http://127.0.0.1:3000/hidden/notes.txt
+----- body (first 20 lines) -----
+INTERNAL BACKUP NOTES — do not publish
+Owner: lab-admin
+Ticket: NAS-3000
+WEB_FLAG{r0b0ts_l34d_t0_s3cr3ts}
+-----
+[200] http://127.0.0.1:3000/.git/HEAD
+----- body (first 20 lines) -----
+ref: refs/heads/main
+-----
+[404] http://127.0.0.1:3000/sitemap.xml
+[404] http://127.0.0.1:3000/backup
+[404] http://127.0.0.1:3000/login
